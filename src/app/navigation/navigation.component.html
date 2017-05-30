@@ -1,0 +1,31 @@
+<div class='main-nav'>
+    <div class='navbar navbar-inverse'>
+        <div class='navbar-header'>
+            <button type='button' class='navbar-toggle' data-toggle='collapse' data-target='.navbar-collapse'>
+                <span class='sr-only'>Toggle navigation</span>
+                <span class='icon-bar'></span>
+                <span class='icon-bar'></span>
+                <span class='icon-bar'></span>
+            </button>
+            <a class='navbar-brand' [routerLink]="['/']">TI Companion</a>
+        </div>
+        <div class='clearfix'></div>
+        <div class='navbar-collapse collapse'>
+            <ul class='nav navbar-nav'>
+                <li *ngFor="let player of players"
+                  [class.selected]="player === selectedPlayer"
+                  (click)="onSelect(player)">
+                    <a [routerLink]="['/']">
+                        <span class='glyphicon glyphicon-user'></span>
+                        {{player.name}}
+                    </a>
+                </li>
+                <li [routerLinkActive]="['link-active']">
+                    <a [routerLink]="['/add']">
+                        <span class='glyphicon glyphicon-plus'></span> Add Player
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
