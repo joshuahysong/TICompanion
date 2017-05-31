@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { Player } from './player.model';
 
- let players: Player[] = [];
+let players: Player[] = [];
 
 @Injectable()
 export class PlayerService {
