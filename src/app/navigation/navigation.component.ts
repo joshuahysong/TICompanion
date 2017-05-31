@@ -34,6 +34,10 @@ export class NavigationComponent implements OnInit {
   }
 
   getPlayers(): void {
-    this.playerService.getPlayers().then(players => this.players = players);
+    this.players = this.playerService.getPlayers()
+  }
+
+  addPlayer() : void{
+    this.onSelect(this.playerService.addPlayer());
   }
 }

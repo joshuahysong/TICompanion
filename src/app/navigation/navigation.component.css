@@ -3,7 +3,9 @@ li .glyphicon {
 }
 
 /* Highlighting rules for nav menu items */
-.selected {
+li.selected a,
+li.selected a:hover,
+li.selected a:focus {
     background-color: #4189C7;
     color: white;
 }
