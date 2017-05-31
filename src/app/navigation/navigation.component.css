@@ -17,7 +17,7 @@ li .glyphicon {
     z-index: 1;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 800px) {
     /* On small screens, convert the nav menu to a vertical sidebar */
     .main-nav {
         height: 100%;

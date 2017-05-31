@@ -22,7 +22,6 @@ export class PlayerService {
 
   getPlayer(id: number): Promise<Player> {
     const url = `${this.playersUrl}/${id}`;
-    console.log(url);
     return this.http.get(url)
       .toPromise()
       .then(response => response.json().data as Player)

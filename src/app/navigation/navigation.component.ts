@@ -12,6 +12,7 @@ import { PlayerService } from '../players/shared/player.service'
 export class NavigationComponent implements OnInit {
   players: Player[];
   selectedPlayer: Player;
+  isIn = false; // collapsed state
 
   constructor(
     private playerService: PlayerService,
@@ -21,9 +22,15 @@ export class NavigationComponent implements OnInit {
     this.getPlayers();
   }
 
+  toggleState() {
+    let bool = this.isIn;
+    this.isIn = bool === false ? true : false;
+  }
+
   onSelect(player: Player): void {
     this.selectedPlayer = player;
     this.router.navigate(['/players', this.selectedPlayer.id])
+    this.toggleState();
   }
 
   getPlayers(): void {
