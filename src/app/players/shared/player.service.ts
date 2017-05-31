@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { Player } from './player.model';
-
-let players: Player[] = [];
+import { Players } from '../../shared/players.data'
 
 @Injectable()
 export class PlayerService {
@@ -10,17 +9,17 @@ export class PlayerService {
   constructor() { }
 
   getPlayers(): Player[] {
-    return players;
+      return Players;
   }
 
   getPlayer(id: number): Player {
-    return players[id - 1] as Player;
+    return Players[id - 1] as Player;
   }
 
   addPlayer(): Player {
-    let id = players.length + 1
+    let id = Players.length + 1
     let player: Player = new Player(+id, 'Player ' + id);
-    players.push(player)
+    Players.push(player)
     return player;
   }
 }

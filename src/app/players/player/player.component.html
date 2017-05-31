@@ -15,11 +15,7 @@
     <div class="form-group">
       <label for="race">Race</label>
       <select class="form-control" id="race">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
+        <option *ngFor="let race of races">{{race.name}}</option>
       </select>
     </div>
 
