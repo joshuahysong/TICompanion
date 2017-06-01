@@ -14,10 +14,15 @@
 
     <div class="form-group">
       <label for="race">Race</label>
-      <select class="form-control" id="race">
+      <select class="form-control" title="Choose one of the following..." id="race">
         <option *ngFor="let race of races">{{race.name}}</option>
       </select>
     </div>
+
+    <button 
+      type="button" 
+      class="btn btn-danger"
+      (click)="delete()">Delete Player</button>
 
   </form>
 

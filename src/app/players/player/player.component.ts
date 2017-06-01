@@ -1,6 +1,6 @@
 import 'rxjs/add/operator/switchMap';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 
 import { Race } from '../../shared/race.model';
@@ -21,10 +21,11 @@ export class PlayerComponent implements OnInit {
     private playerService: PlayerService,
     private raceService: RaceService,
     private route: ActivatedRoute,
+    private router: Router,
     private location: Location
   ) {}
 
-  ngOnInit(): void {
+  ngOnInit() {
     // subscribe to router event
     this.route.params.subscribe((params: Params) => {
         let id = params['id'];
@@ -33,4 +34,9 @@ export class PlayerComponent implements OnInit {
 
     this.races = this.raceService.getRaces();
   }
+
+  delete() {
+    this.playerService.deletePlayer(this.player);
+    this.router.navigate(['/players', this.player.id - 1])
+  }  
 }

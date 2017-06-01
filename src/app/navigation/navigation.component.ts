@@ -13,7 +13,6 @@ export class NavigationComponent implements OnInit {
   players: Player[];
   selectedPlayer: Player;
   isIn = false; // collapsed state
-  isTopBar = false;
 
   constructor(
     private playerService: PlayerService,
@@ -43,5 +42,6 @@ export class NavigationComponent implements OnInit {
 
   addPlayer() {
     this.onSelect(this.playerService.addPlayer());
+    this.getPlayers();
   }
 }
