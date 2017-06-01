@@ -18,7 +18,7 @@
           <li *ngFor="let player of players"
             [class.selected]="player === selectedPlayer"
             (click)="onSelect(player)">
-            <a [routerLink]="['/']">
+            <a [routerLink]="'/players/' + player.id">
               <span class='glyphicon glyphicon-user'></span>
               <span>{{player.name}}</span>
             </a>

@@ -10,6 +10,8 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { PlayerComponent } from './players/player/player.component';
 
 import { PlayerService } from './players/shared/player.service';
+import { RaceService } from './shared/race.service';
+import { PlayersData } from './shared/players.data';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,7 @@ import { PlayerService } from './players/shared/player.service';
     HttpModule,
     AppRoutingModule
   ],
-  providers: [PlayerService],
+  providers: [PlayerService, RaceService, PlayersData],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

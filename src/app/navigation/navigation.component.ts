@@ -13,7 +13,6 @@ export class NavigationComponent implements OnInit {
   players: Player[];
   selectedPlayer: Player;
   isIn = false; // collapsed state
-  isTopBar = false;
 
   constructor(
     private playerService: PlayerService,
@@ -28,7 +27,7 @@ export class NavigationComponent implements OnInit {
     this.isIn = bool === false ? true : false;
   }
 
-  onSelect(player: Player): void {
+  onSelect(player: Player) {
     this.selectedPlayer = player;
     this.router.navigate(['/players', this.selectedPlayer.id])
 
@@ -37,11 +36,12 @@ export class NavigationComponent implements OnInit {
     }
   }
 
-  getPlayers(): void {
+  getPlayers() {
     this.players = this.playerService.getPlayers()
   }
 
-  addPlayer() : void{
+  addPlayer() {
     this.onSelect(this.playerService.addPlayer());
+    this.getPlayers();
   }
 }
