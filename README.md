@@ -1,4 +1,4 @@
-# TICompanion
+# TI Companion
 
 This project aims to be a companion web app for the epic tabletop game Twilight Imperium 3rd edition.
 

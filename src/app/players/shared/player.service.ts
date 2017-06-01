@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 
 import { Player } from './player.model';
-import { PlayersData } from '../../shared/players.data'
 
 import { StorageSync, StorageStrategy } from 'angular2-storage-sync';
 
@@ -11,7 +10,7 @@ export class PlayerService {
   index: number = 1;
   @StorageSync('players') savedPlayers: Player[] = [];
 
-  constructor() { }
+  constructor() { console.log("hi"); }
 
   getPlayers(): Player[] {
     this.players = this.savedPlayers;

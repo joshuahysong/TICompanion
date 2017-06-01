@@ -1,27 +1,29 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import { Location } from '@angular/common';
 
-import { Race } from '../../shared/race.model';
-import { RaceService } from '../../shared/race.service';
+import { Race } from 'app/shared/race.model';
+import { RaceService } from 'app/shared/race.service';
 import { Player } from '../shared/player.model';
 import { PlayerService } from '../shared/player.service';
+import { Unit } from 'app/shared/unit.model';
+import { Units } from 'assets/units';
 
 @Component({
   selector: 'app-player',
   templateUrl: './player.component.html',
-  styleUrls: ['./player.component.css']
+  styleUrls: ['./player.component.css'],
+  providers: [ PlayerService ]
 })
 export class PlayerComponent implements OnInit {
   player: Player;
   races: Race[];
+  units;
 
   constructor(
     private playerService: PlayerService,
     private raceService: RaceService,
     private route: ActivatedRoute,
-    private router: Router,
-    private location: Location
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -32,6 +34,7 @@ export class PlayerComponent implements OnInit {
       });
 
     this.races = this.raceService.getRaces();
+    this.units = Units;
   }
 
   delete() {
@@ -42,5 +45,9 @@ export class PlayerComponent implements OnInit {
   raceOnChange(newValue) {
     this.player.race = new Race(newValue);
     this.playerService.savePlayersData(); // Having to call this doesn't feel right
+  }
+
+  goToStats(player: Player) {
+    //this.router.navigate(['/players', this.player.id, 'stats'])
   }
 }

@@ -33,8 +33,16 @@
   </form>
 
   <ul class="nav nav-tabs">
-    <li role="presentation" class="active"><a href="">Technology</a></li>
-    <li role="presentation"><a href="">Battle Simulation</a></li>
+    <li role="presentation" 
+      (click)="goToStats()"
+      class="active">
+      <a [routerLink]="['/player', player.id, 'stats']">Stats</a></li>
+    <li role="presentation">
+      <a [routerLink]="['/player', player.id, 'technology']">Technology</a></li>
+    <li role="presentation">
+      <a [routerLink]="['/player', player.id, 'battlesimulation']">Battle Simulation</a></li>
   </ul>
+
+  <router-outlet></router-outlet>
 
 </div>
