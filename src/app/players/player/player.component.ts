@@ -11,8 +11,7 @@ import { Units } from 'assets/units';
 @Component({
   selector: 'app-player',
   templateUrl: './player.component.html',
-  styleUrls: ['./player.component.css'],
-  providers: [ PlayerService ]
+  styleUrls: ['./player.component.css']
 })
 export class PlayerComponent implements OnInit {
   player: Player;
@@ -38,16 +37,17 @@ export class PlayerComponent implements OnInit {
   }
 
   delete() {
-    this.playerService.deletePlayer(this.player.id);
-    this.router.navigate(['/players', this.player.id - 1]);
+    let newID = this.playerService.deletePlayer(this.player.id);
+
+    if (newID) {
+      this.router.navigate(['/players', newID]);
+    } else {
+      this.router.navigate(['/']);
+    }
   }  
 
   raceOnChange(newValue) {
     this.player.race = new Race(newValue);
     this.playerService.savePlayersData(); // Having to call this doesn't feel right
-  }
-
-  goToStats(player: Player) {
-    //this.router.navigate(['/players', this.player.id, 'stats'])
   }
 }
