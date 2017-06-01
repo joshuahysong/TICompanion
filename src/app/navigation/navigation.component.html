@@ -16,9 +16,9 @@
         [ngClass]="{ 'in': isIn }">
         <ul class="nav navbar-nav">
           <li *ngFor="let player of players"
-            [class.selected]="player === selectedPlayer"
+            [class.selected]="player === playerService.currentPlayer"
             (click)="onSelect(player)">
-            <a [routerLink]="'/players/' + player.id">
+            <a [routerLink]="['/players/', player.id]">
               <span class='glyphicon glyphicon-user'></span>
               <span>{{player.name}}</span>
             </a>

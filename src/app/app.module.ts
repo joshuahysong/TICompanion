@@ -11,13 +11,14 @@ import { PlayerComponent } from './players/player/player.component';
 
 import { PlayerService } from './players/shared/player.service';
 import { RaceService } from './shared/race.service';
-import { PlayersData } from './shared/players.data';
+import { PlayerStatsComponent } from './players/player-stats/player-stats.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
-    PlayerComponent
+    PlayerComponent,
+    PlayerStatsComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +26,7 @@ import { PlayersData } from './shared/players.data';
     HttpModule,
     AppRoutingModule
   ],
-  providers: [PlayerService, RaceService, PlayersData],
+  providers: [PlayerService, RaceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

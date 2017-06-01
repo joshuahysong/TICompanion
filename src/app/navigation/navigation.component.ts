@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 
 import { Player } from '../players/shared/player.model';
 import { PlayerService } from '../players/shared/player.service'
@@ -11,12 +11,12 @@ import { PlayerService } from '../players/shared/player.service'
 })
 export class NavigationComponent implements OnInit {
   players: Player[];
-  selectedPlayer: Player;
   isIn = false; // collapsed state
 
   constructor(
     private playerService: PlayerService,
-    private router: Router) { }
+    private router: Router,
+    private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.getPlayers();
@@ -28,9 +28,6 @@ export class NavigationComponent implements OnInit {
   }
 
   onSelect(player: Player) {
-    this.selectedPlayer = player;
-    this.router.navigate(['/players', this.selectedPlayer.id])
-
     if (this.isIn) {
       this.toggleState();
     }
@@ -41,7 +38,7 @@ export class NavigationComponent implements OnInit {
   }
 
   addPlayer() {
-    this.onSelect(this.playerService.addPlayer());
-    this.getPlayers();
+    let player = this.playerService.addPlayer();
+    this.router.navigate(['/players', player.id])
   }
 }
