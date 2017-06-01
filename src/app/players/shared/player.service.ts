@@ -11,7 +11,6 @@ export class PlayerService {
   index: number = 1;
   @StorageSync('players') savedPlayers: Player[] = [];
 
-
   constructor() { }
 
   getPlayers(): Player[] {
@@ -26,6 +25,7 @@ export class PlayerService {
 
   getPlayer(id: number): Player {
     let playerIndex = this.players.findIndex(x => x.id == id);
+    this.savePlayersData();
     return this.players[playerIndex] as Player;
   }
 
@@ -33,18 +33,24 @@ export class PlayerService {
     let player: Player = new Player(+this.index, 'Player ' +this.index);
 
     this.players.push(player);
-    this.savedPlayers = this.players;
+    this.savePlayersData();
 
     return player;
   }
 
-  deletePlayer(player: Player) {
-    let playerIndex = this.players.findIndex(x => x.id === player.id);
+  deletePlayer(id: number) {
+    let playerIndex = this.players.findIndex(x => x.id === id);
 
     if (playerIndex > -1) {
 
       this.players.splice(playerIndex, 1);
-      this.savedPlayers = this.players;
+      this.savePlayersData();
     }
+  }
+
+  // This is a terrible way of making sure localstorage data is synced....
+  // Not sure what else to do just yet. 
+  savePlayersData() {
+    this.savedPlayers = this.players;
   }
 }

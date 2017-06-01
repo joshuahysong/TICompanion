@@ -6,6 +6,7 @@
       <label for="playerName">Name</label>
         <input type="text" 
           [(ngModel)]="player.name" 
+          (keyup)="nameChange()"
           class="form-control" 
           id="playerName" 
           name="playerName" 
@@ -14,7 +15,12 @@
 
     <div class="form-group">
       <label for="race">Race</label>
-      <select class="form-control" title="Choose one of the following..." id="race">
+      <select 
+        [ngModel]="player?.race?.name" 
+        (ngModelChange)="raceOnChange($event)"
+        class="form-control" 
+        name="race" id="race">
+        <option value="null" disabled selected>Select the race</option>
         <option *ngFor="let race of races">{{race.name}}</option>
       </select>
     </div>
