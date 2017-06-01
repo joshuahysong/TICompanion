@@ -1,4 +1,3 @@
-import 'rxjs/add/operator/switchMap';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
@@ -36,7 +35,12 @@ export class PlayerComponent implements OnInit {
   }
 
   delete() {
-    this.playerService.deletePlayer(this.player);
-    this.router.navigate(['/players', this.player.id - 1])
+    this.playerService.deletePlayer(this.player.id);
+    this.router.navigate(['/players', this.player.id - 1]);
   }  
+
+  raceOnChange(newValue) {
+    this.player.race = new Race(newValue);
+    this.playerService.savePlayersData(); // Having to call this doesn't feel right
+  }
 }

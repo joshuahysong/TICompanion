@@ -8,7 +8,7 @@ export class RaceService {
 
   constructor() { }
 
-  getRaces() {
+  getRaces(): Race[] {
     return Races;
   }
 }
