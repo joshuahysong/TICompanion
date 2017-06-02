@@ -14,6 +14,7 @@ import { Units } from 'assets/units';
   styleUrls: ['./player.component.css']
 })
 export class PlayerComponent implements OnInit {
+  
   player: Player;
   races: Race[];
   units;
@@ -47,7 +48,7 @@ export class PlayerComponent implements OnInit {
   }  
 
   raceOnChange(newValue) {
-    this.player.race = new Race(newValue);
+    this.player.race = this.raceService.getRaceByID(newValue);
     this.playerService.savePlayersData(); // Having to call this doesn't feel right
   }
 }
