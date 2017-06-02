@@ -1,3 +1,28 @@
-<p>
-  player-stats works!
-</p>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Move</th>
+      <th>Attack</th>
+      <th>HP</th>
+      <th>Carry</th>
+      <th>Cost</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let unit of units">
+      <td>{{unit.name}}</td>
+      <td><span *ngIf="unit.move != 0">{{unit.move}}</span></td>
+      <td><span *ngIf="unit.attack != 0">{{unit.attack}}</span>
+        <span *ngIf="unit.attacks > 1">x {{unit.attacks}}</span>
+      </td>
+      <td><span *ngIf="unit.hp != 0">{{unit.hp}}</span></td>
+      <td><span *ngIf="unit.carry != 0">{{unit.carry}}</span></td>
+      <td><div *ngIf="unit.cost != 0">
+          <span *ngIf="unit.cost == .5; else cost">1 x 2</span>
+          <ng-template #cost>{{unit.cost}}</ng-template>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
