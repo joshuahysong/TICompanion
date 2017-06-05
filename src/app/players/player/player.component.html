@@ -16,31 +16,34 @@
     <div class="form-group">
       <label for="race">Race</label>
       <select 
-        [ngModel]="player?.race?.name" 
+        [ngModel]="player?.race?.id" 
         (ngModelChange)="raceOnChange($event)"
         class="form-control" 
         name="race" id="race">
-        <option value="null" disabled selected>Select the race</option>
-        <option *ngFor="let race of races">{{race.name}}</option>
+        <option value="null" disabled>Select the race</option>
+        <option *ngFor="let race of races" 
+          [ngValue]="race.id">{{race.name}}</option>
       </select>
     </div>
 
     <button 
       type="button" 
       class="btn btn-danger"
-      (click)="delete()">Delete Player</button>
+      (click)="delete()">Remove</button>
 
   </form>
 
   <ul class="nav nav-tabs">
-    <li role="presentation" 
-      (click)="goToStats()"
+    <li role="presentation"
       class="active">
-      <a [routerLink]="['/player', player.id, 'stats']">Stats</a></li>
+      <a [routerLink]="['/player', player.id, 'stats']">Stats</a>
+    </li>
     <li role="presentation">
-      <a [routerLink]="['/player', player.id, 'technology']">Technology</a></li>
+      <a [routerLink]="['/player', player.id, 'technology']">Technology</a>
+    </li>
     <li role="presentation">
-      <a [routerLink]="['/player', player.id, 'battlesimulation']">Battle Simulation</a></li>
+      <a [routerLink]="['/player', player.id, 'battlesimulation']">Battle Simulation</a>
+    </li>
   </ul>
 
   <router-outlet></router-outlet>

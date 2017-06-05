@@ -14,9 +14,10 @@ import { Units } from 'assets/units';
   styleUrls: ['./player.component.css']
 })
 export class PlayerComponent implements OnInit {
+  
   player: Player;
   races: Race[];
-  units;
+  units: Unit[];
 
   constructor(
     private playerService: PlayerService,
@@ -26,14 +27,17 @@ export class PlayerComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+
+    this.races = this.raceService.getRaces();
+    this.units = Units;
+
     // subscribe to router event
     this.route.params.subscribe((params: Params) => {
         let id = params['id'];
         this.player = this.playerService.getPlayer(id);
+        this.player.units = this.units.map(x => Object.assign({}, x));
+        this.adjustUnitsByRace()
       });
-
-    this.races = this.raceService.getRaces();
-    this.units = Units;
   }
 
   delete() {
@@ -47,7 +51,36 @@ export class PlayerComponent implements OnInit {
   }  
 
   raceOnChange(newValue) {
-    this.player.race = new Race(newValue);
+    this.player.race = this.raceService.getRaceByID(newValue);
     this.playerService.savePlayersData(); // Having to call this doesn't feel right
+    this.adjustUnitsByRace()
+  }
+
+  adjustUnitsByRace() {
+    if (this.player.race && this.player.units) {
+      for (let i = 0; i < this.player.units.length; i++) {
+        let playerUnit = this.player.units[i];
+        let defaultUnit = this.units[i];
+
+        playerUnit.move = defaultUnit.move;
+        playerUnit.attack = defaultUnit.attack;
+        playerUnit.attacks = defaultUnit.attacks
+        playerUnit.hp = defaultUnit.hp;
+        playerUnit.carry = defaultUnit.carry;
+        playerUnit.cost = defaultUnit.cost;
+
+        for (let a = 0; a < this.player.race.unitAdjustment.length; a++) {
+          let raceUnit = this.player.race.unitAdjustment[a]
+          if (playerUnit.name === raceUnit.name) {
+            playerUnit.move = defaultUnit.move + raceUnit.move;
+            playerUnit.attack = defaultUnit.attack - raceUnit.attack;
+            playerUnit.attacks = defaultUnit.attacks + raceUnit.attacks;
+            playerUnit.hp = defaultUnit.hp + raceUnit.hp;
+            playerUnit.carry = defaultUnit.carry + raceUnit.carry;
+            playerUnit.cost = defaultUnit.cost + raceUnit.cost;
+          }
+        }
+      }
+    }
   }
 }
