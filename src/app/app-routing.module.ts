@@ -5,13 +5,14 @@ import { PlayerComponent } from './players/player/player.component';
 import { PlayerStatsComponent } from './players/player-stats/player-stats.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/', pathMatch: 'full' },
-  { path: 'players/:id', component: PlayerComponent, 
+  { path: '', redirectTo: '/players/1/stats', pathMatch: 'full' },
+  { path: 'players/:id', component: PlayerComponent,
     children: [
       { path: '', redirectTo: 'stats', pathMatch: 'full'},
       { path: 'stats', component: PlayerStatsComponent}
     ] 
-  }
+  },
+  { path: '**', redirectTo: '/players/1/stats', pathMatch: 'full' },
 ];
 
 @NgModule({

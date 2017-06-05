@@ -20,9 +20,10 @@ export class NavigationComponent implements OnInit {
 
   ngOnInit() {
     this.getPlayers();
+
     if (!this.players || this.players.length === 0) {
       this.addPlayer();
-    }
+    }  
   }
 
   toggleState() {
