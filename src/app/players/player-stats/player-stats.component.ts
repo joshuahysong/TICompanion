@@ -26,9 +26,7 @@ export class PlayerStatsComponent implements OnInit {
     this.route.parent.params.subscribe((params: Params) => {
         let id = params['id'];
         this.player = this.playerService.getPlayer(id);
+        this.units = Units;
       });
-
-    this.units = Units;
-
   }
 }

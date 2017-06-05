@@ -10,7 +10,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let unit of units">
+    <tr *ngFor="let unit of player.units">
       <td>{{unit.name}}</td>
       <td><span *ngIf="unit.move != 0">{{unit.move}}</span></td>
       <td><span *ngIf="unit.attack != 0">{{unit.attack}}</span>
