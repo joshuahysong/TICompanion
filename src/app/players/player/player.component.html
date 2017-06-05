@@ -5,8 +5,7 @@
     <div class="form-group">
       <label for="playerName">Name</label>
         <input type="text" 
-          [(ngModel)]="player.name" 
-          (keyup)="nameChange()"
+          [(ngModel)]="player.name"
           class="form-control" 
           id="playerName" 
           name="playerName" 
@@ -25,11 +24,6 @@
           [ngValue]="race.id">{{race.name}}</option>
       </select>
     </div>
-
-    <button 
-      type="button" 
-      class="btn btn-danger"
-      (click)="delete()">Remove</button>
 
   </form>
 

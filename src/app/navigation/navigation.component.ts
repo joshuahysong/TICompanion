@@ -19,11 +19,7 @@ export class NavigationComponent implements OnInit {
     private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.getPlayers();
-
-    if (!this.players || this.players.length === 0) {
-      this.addPlayer();
-    }  
+    this.getPlayers(); 
   }
 
   toggleState() {
@@ -39,10 +35,5 @@ export class NavigationComponent implements OnInit {
 
   getPlayers() {
     this.players = this.playerService.getPlayers()
-  }
-
-  addPlayer() {
-    let player = this.playerService.addPlayer();
-    this.router.navigate(['/players', player.id])
   }
 }
