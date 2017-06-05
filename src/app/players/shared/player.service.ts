@@ -8,16 +8,19 @@ import { StorageSync, StorageStrategy } from 'angular2-storage-sync';
 export class PlayerService {
   players: Player[] = [];
   currentPlayer: Player;
-  index: number = 1;
+  maxPlayers: number = 6 // TODO Needs to be a user setting eventually
   @StorageSync('players') savedPlayers: Player[] = [];
 
-  constructor() { }
+  constructor() {}
 
   getPlayers(): Player[] {
-    this.players = this.savedPlayers;
+    this.players = this.savedPlayers.map(x => Object.assign({}, x));
 
-    if (this.players && this.players.length > 0) {
-      this.index = this.players[this.players.length - 1].id + 1
+    if (this.players.length != this.maxPlayers) {
+      this.players = []
+      for (var i = 1; i <= this.maxPlayers; i++) {
+        this.addPlayer(i);
+      }
     }
 
     return this.players;
@@ -30,16 +33,12 @@ export class PlayerService {
     return this.currentPlayer;
   }
 
-  addPlayer(): Player {
-    let player: Player = new Player(+this.index, 'Player ' +this.index);
+  addPlayer(id: number): Player {
+    let player: Player = new Player(id, 'Player ' + id);
     this.currentPlayer = player;
 
     this.players.push(player);
     this.savePlayersData();
-
-    if (this.players && this.players.length > 0) {
-      this.index = this.players[this.players.length - 1].id + 1
-    }
 
     return player;
   }
@@ -70,6 +69,6 @@ export class PlayerService {
   // This is a terrible way of making sure localstorage data is synced....
   // Not sure what else to do just yet. 
   savePlayersData() {
-    this.savedPlayers = this.players;
+    this.savedPlayers = this.players.map(x => Object.assign({}, x));
   }
 }
