@@ -1,59 +1,59 @@
-import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute, Params } from '@angular/router';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
 
-import { Race } from 'app/shared/race.model';
-import { RaceService } from 'app/shared/race.service';
+import { Race } from 'app/races/race.model';
+import { RaceService } from 'app/races/race.service';
 import { Player } from '../shared/player.model';
 import { PlayerService } from '../shared/player.service';
-import { Unit } from 'app/shared/unit.model';
-import { Units } from 'assets/units';
+import { Unit } from 'app/units/unit.model';
+import { UnitService } from 'app/units/unit.service';
 
 @Component({
   selector: 'app-player',
   templateUrl: './player.component.html',
   styleUrls: ['./player.component.css']
 })
-export class PlayerComponent implements OnInit {
+export class PlayerComponent implements OnInit, OnDestroy {
   
   player: Player;
   races: Race[];
-  units: Unit[];
+  units: Unit[];  
+  sub: Subscription;
 
   constructor(
     private playerService: PlayerService,
     private raceService: RaceService,
+    private unitService: UnitService,
     private route: ActivatedRoute,
     private router: Router
   ) {}
 
   ngOnInit() {
-
-    this.races = this.raceService.getRaces();
-    this.units = Units;
-
-    // subscribe to router event
-    this.route.params.subscribe((params: Params) => {
-        let id = params['id'];
-        this.player = this.playerService.getPlayer(id);
-        this.player.units = this.units.map(x => Object.assign({}, x));
-        this.adjustUnitsByRace()
+    this.sub = this.route.params.subscribe(params => {
+      let id = +params['id']; 
+      this.raceService.getAll().subscribe(races => {
+        this.races = races;
+        this.unitService.getAll().subscribe(units => {
+          this.units = units;
+          this.player = this.playerService.getPlayer(id);
+          this.player.units = this.units.map(x => Object.assign({}, x));
+          this.adjustUnitsByRace()
+        });
       });
+    });
   }
 
-  delete() {
-    let newID = this.playerService.deletePlayer(this.player.id);
-
-    if (newID) {
-      this.router.navigate(['/players', newID]);
-    } else {
-      this.router.navigate(['/']);
-    }
-  }  
+  ngOnDestroy() {
+    this.sub.unsubscribe();
+  }
 
   raceOnChange(newValue) {
-    this.player.race = this.raceService.getRaceByID(newValue);
-    this.playerService.savePlayersData(); // Having to call this doesn't feel right
-    this.adjustUnitsByRace()
+    this.raceService.getByID(newValue).subscribe(race => {
+      this.player.race = race;
+      this.playerService.savePlayersData();
+      this.adjustUnitsByRace()
+    });
   }
 
   adjustUnitsByRace() {

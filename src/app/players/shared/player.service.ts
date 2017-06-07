@@ -13,7 +13,7 @@ export class PlayerService {
 
   constructor() {}
 
-  getPlayers(): Player[] {
+  getAll(): Player[] {
     this.players = this.savedPlayers.map(x => Object.assign({}, x));
 
     if (this.players.length != this.maxPlayers) {

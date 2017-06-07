@@ -1,8 +1,5 @@
-import { Race } from 'app/shared/race.model';
-import { Unit, UnitType } from 'app/shared/unit.model';
-
-export const Races: Race[] = [
-  { // The Arborec
+[
+  {
     "id": 1,
     "name": "The Arborec",
     "unitAdjustment": [
@@ -14,12 +11,12 @@ export const Races: Race[] = [
         "hp": 2,
         "carry": 5,
         "cost": 10,
-        "type": UnitType.Space,
+        "type": "Space",
         "maxCount": 0
-      },
+      }
     ]
   },
-  { // The Barony of Letnev
+  {
     "id": 2,
     "name": "The Barony of Letnev",
     "unitAdjustment": [
@@ -31,12 +28,12 @@ export const Races: Race[] = [
         "hp": 2,
         "carry": 2,
         "cost": 10,
-        "type": UnitType.Space,
+        "type": "Space",
         "maxCount": 0
-      },
+      }
     ]
   },
-  { // The Brotherhood of Yin
+  {
     "id": 3,
     "name": "The Brotherhood of Yin",
     "unitAdjustment": [
@@ -48,12 +45,12 @@ export const Races: Race[] = [
         "hp": 2,
         "carry": 4,
         "cost": 10,
-        "type": UnitType.Space,
+        "type": "Space",
         "maxCount": 0
-      },
+      }
     ]
   },
-  { // The Clan of Saar
+  {
     "id": 4,
     "name": "The Clan of Saar",
     "unitAdjustment": [
@@ -65,7 +62,7 @@ export const Races: Race[] = [
         "hp": 0,
         "carry": 0,
         "cost": 0,
-        "type": UnitType.Space,
+        "type": "Space",
         "maxCount": 0
       },
       {
@@ -76,12 +73,12 @@ export const Races: Race[] = [
         "hp": 2,
         "carry": 4,
         "cost": 10,
-        "type": UnitType.Space,
+        "type": "Space",
         "maxCount": 0
-      },
+      }
     ]
   },
-  { // The Embers of Muaat
+  {
     "id": 5,
     "name": "The Embers of Muaat",
     "unitAdjustment": [
@@ -93,7 +90,7 @@ export const Races: Race[] = [
         "hp": 0,
         "carry": 0,
         "cost": 0,
-        "type": UnitType.Space,
+        "type": "Space",
         "maxCount": 0
       },
       {
@@ -104,12 +101,12 @@ export const Races: Race[] = [
         "hp": 2,
         "carry": 4,
         "cost": 10,
-        "type": UnitType.Space,
+        "type": "Space",
         "maxCount": 0
-      },
+      }
     ]
   },
-  { // The Emirates of Hacan
+  {
     "id": 6,
     "name": "The Emirates of Hacan",
     "unitAdjustment": [
@@ -121,12 +118,12 @@ export const Races: Race[] = [
         "hp": 2,
         "carry": 4,
         "cost": 10,
-        "type": UnitType.Space,
+        "type": "Space",
         "maxCount": 0
-      },
+      }
     ]
   },
-  { // The Federation of Sol
+  {
     "id": 7,
     "name": "The Federation of Sol",
     "unitAdjustment": [
@@ -138,12 +135,12 @@ export const Races: Race[] = [
         "hp": 2,
         "carry": 3,
         "cost": 10,
-        "type": UnitType.Space,
+        "type": "Space",
         "maxCount": 0
-      },
+      }
     ]
   },
-  { // The Ghosts of Creuss
+  {
     "id": 8,
     "name": "The Ghosts of Creuss",
     "unitAdjustment": [
@@ -155,12 +152,12 @@ export const Races: Race[] = [
         "hp": 2,
         "carry": 3,
         "cost": 10,
-        "type": UnitType.Space,
+        "type": "Space",
         "maxCount": 0
-      },
+      }
     ]
   },
-  { // The L1z1x Mindnet
+  {
     "id": 9,
     "name": "The L1z1x Mindnet",
     "unitAdjustment": [
@@ -172,7 +169,7 @@ export const Races: Race[] = [
         "hp": 0,
         "carry": 0,
         "cost": -1,
-        "type": UnitType.Space,
+        "type": "Space",
         "maxCount": 0
       },
       {
@@ -183,12 +180,12 @@ export const Races: Race[] = [
         "hp": 2,
         "carry": 2,
         "cost": 11,
-        "type": UnitType.Space,
+        "type": "Space",
         "maxCount": 0
-      },
+      }
     ]
   },
-  { // The Mentak Coalition
+  {
     "id": 10,
     "name": "The Mentak Coalition",
     "unitAdjustment": [
@@ -200,12 +197,12 @@ export const Races: Race[] = [
         "hp": 2,
         "carry": 2,
         "cost": 8,
-        "type": UnitType.Space,
+        "type": "Space",
         "maxCount": 0
-      },
+      }
     ]
   },
-  { // The Naalu Collective
+  {
     "id": 11,
     "name": "The Naalu Collective",
     "unitAdjustment": [
@@ -217,7 +214,7 @@ export const Races: Race[] = [
         "hp": 0,
         "carry": 0,
         "cost": 0,
-        "type": UnitType.Space,
+        "type": "Space",
         "maxCount": 0
       },
       {
@@ -228,17 +225,17 @@ export const Races: Race[] = [
         "hp": 2,
         "carry": 6,
         "cost": 9,
-        "type": UnitType.Space,
+        "type": "Space",
         "maxCount": 0
-      },
+      }
     ]
   },
-  { // The Nekro Virus
+  {
     "id": 12,
     "name": "The Nekro Virus",
     "unitAdjustment": []
   },
-  { // The Sardakk N'orr
+  {
     "id": 13,
     "name": "The Sardakk N’orr",
     "unitAdjustment": [
@@ -250,7 +247,7 @@ export const Races: Race[] = [
         "hp": 0,
         "carry": 0,
         "cost": 0,
-        "type": UnitType.Space,
+        "type": "Space",
         "maxCount": 0
       },
       {
@@ -261,7 +258,7 @@ export const Races: Race[] = [
         "hp": 0,
         "carry": 0,
         "cost": 0,
-        "type": UnitType.Space,
+        "type": "Space",
         "maxCount": 0
       },
       {
@@ -272,7 +269,7 @@ export const Races: Race[] = [
         "hp": 0,
         "carry": 0,
         "cost": 0,
-        "type": UnitType.Space,
+        "type": "Space",
         "maxCount": 0
       },
       {
@@ -283,7 +280,7 @@ export const Races: Race[] = [
         "hp": 0,
         "carry": 0,
         "cost": 0,
-        "type": UnitType.Space,
+        "type": "Space",
         "maxCount": 0
       },
       {
@@ -294,7 +291,7 @@ export const Races: Race[] = [
         "hp": 0,
         "carry": 0,
         "cost": 0,
-        "type": UnitType.Space,
+        "type": "Space",
         "maxCount": 0
       },
       {
@@ -305,7 +302,7 @@ export const Races: Race[] = [
         "hp": 0,
         "carry": 0,
         "cost": 0,
-        "type": UnitType.Space,
+        "type": "Space",
         "maxCount": 0
       },
       {
@@ -316,7 +313,7 @@ export const Races: Race[] = [
         "hp": 0,
         "carry": 0,
         "cost": 0,
-        "type": UnitType.Space,
+        "type": "Space",
         "maxCount": 0
       },
       {
@@ -327,7 +324,7 @@ export const Races: Race[] = [
         "hp": 0,
         "carry": 0,
         "cost": 0,
-        "type": UnitType.Space,
+        "type": "Space",
         "maxCount": 0
       },
       {
@@ -338,7 +335,7 @@ export const Races: Race[] = [
         "hp": 0,
         "carry": 0,
         "cost": 0,
-        "type": UnitType.Space,
+        "type": "Space",
         "maxCount": 0
       },
       {
@@ -349,7 +346,7 @@ export const Races: Race[] = [
         "hp": 0,
         "carry": 0,
         "cost": 0,
-        "type": UnitType.Space,
+        "type": "Space",
         "maxCount": 0
       },
       {
@@ -360,12 +357,12 @@ export const Races: Race[] = [
         "hp": 1,
         "carry": 2,
         "cost": 10,
-        "type": UnitType.Space,
+        "type": "Space",
         "maxCount": 0
-      },
+      }
     ]
   },
-  { // The Universities of Jol-Nar
+  {
     "id": 14,
     "name": "The Universities of Jol-Nar",
     "unitAdjustment": [
@@ -377,7 +374,7 @@ export const Races: Race[] = [
         "hp": 0,
         "carry": 0,
         "cost": 0,
-        "type": UnitType.Space,
+        "type": "Space",
         "maxCount": 0
       },
       {
@@ -388,7 +385,7 @@ export const Races: Race[] = [
         "hp": 0,
         "carry": 0,
         "cost": 0,
-        "type": UnitType.Space,
+        "type": "Space",
         "maxCount": 0
       },
       {
@@ -399,7 +396,7 @@ export const Races: Race[] = [
         "hp": 0,
         "carry": 0,
         "cost": 0,
-        "type": UnitType.Space,
+        "type": "Space",
         "maxCount": 0
       },
       {
@@ -410,7 +407,7 @@ export const Races: Race[] = [
         "hp": 0,
         "carry": 0,
         "cost": 0,
-        "type": UnitType.Space,
+        "type": "Space",
         "maxCount": 0
       },
       {
@@ -421,7 +418,7 @@ export const Races: Race[] = [
         "hp": 0,
         "carry": 0,
         "cost": 0,
-        "type": UnitType.Space,
+        "type": "Space",
         "maxCount": 0
       },
       {
@@ -432,7 +429,7 @@ export const Races: Race[] = [
         "hp": 0,
         "carry": 0,
         "cost": 0,
-        "type": UnitType.Space,
+        "type": "Space",
         "maxCount": 0
       },
       {
@@ -443,7 +440,7 @@ export const Races: Race[] = [
         "hp": 0,
         "carry": 0,
         "cost": 0,
-        "type": UnitType.Space,
+        "type": "Space",
         "maxCount": 0
       },
       {
@@ -454,7 +451,7 @@ export const Races: Race[] = [
         "hp": 0,
         "carry": 0,
         "cost": 0,
-        "type": UnitType.Space,
+        "type": "Space",
         "maxCount": 0
       },
       {
@@ -465,7 +462,7 @@ export const Races: Race[] = [
         "hp": 0,
         "carry": 0,
         "cost": 0,
-        "type": UnitType.Space,
+        "type": "Space",
         "maxCount": 0
       },
       {
@@ -476,7 +473,7 @@ export const Races: Race[] = [
         "hp": 0,
         "carry": 0,
         "cost": 0,
-        "type": UnitType.Space,
+        "type": "Space",
         "maxCount": 0
       },
       {
@@ -487,12 +484,12 @@ export const Races: Race[] = [
         "hp": 2,
         "carry": 2,
         "cost": 10,
-        "type": UnitType.Space,
+        "type": "Space",
         "maxCount": 0
-      },
+      }
     ]
   },
-  { // The Winnu
+  {
     "id": 15,
     "name": "The Winnu",
     "unitAdjustment": [
@@ -504,12 +501,12 @@ export const Races: Race[] = [
         "hp": 2,
         "carry": 3,
         "cost": 10,
-        "type": UnitType.Space,
+        "type": "Space",
         "maxCount": 0
-      },
+      }
     ]
   },
-  { // The Xxcha Kingdom
+  {
     "id": 16,
     "name": "The Xxcha Kingdom",
     "unitAdjustment": [
@@ -521,12 +518,12 @@ export const Races: Race[] = [
         "hp": 2,
         "carry": 4,
         "cost": 9,
-        "type": UnitType.Space,
+        "type": "Space",
         "maxCount": 0
-      },
+      }
     ]
   },
-  { // The Yssaril Tribe
+  {
     "id": 17,
     "name": "The Yssaril Tribe",
     "unitAdjustment": [
@@ -538,9 +535,9 @@ export const Races: Race[] = [
         "hp": 2,
         "carry": 5,
         "cost": 9,
-        "type": UnitType.Space,
+        "type": "Space",
         "maxCount": 0
-      },
+      }
     ]
   }
-];
+]

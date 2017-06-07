@@ -1,5 +1,5 @@
-import { Race } from '../../shared/race.model';
-import { Unit } from '../../shared/unit.model';
+import { Race } from 'app/races/race.model';
+import { Unit } from 'app/units/unit.model';
 
 export class Player {
   id: number;

@@ -34,6 +34,6 @@ export class NavigationComponent implements OnInit {
   }
 
   getPlayers() {
-    this.players = this.playerService.getPlayers()
+    this.players = this.playerService.getAll()
   }
 }

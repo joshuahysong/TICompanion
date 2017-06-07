@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 
 import { PlayerStatsComponent } from './player-stats.component';
+import { PlayerService } from '../shared/player.service';
 
 describe('PlayerStatsComponent', () => {
   let component: PlayerStatsComponent;
@@ -8,7 +10,8 @@ describe('PlayerStatsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PlayerStatsComponent ]
+      declarations: [ PlayerStatsComponent ],
+      providers: [ PlayerService ]
     })
     .compileComponents();
   }));
