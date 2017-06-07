@@ -66,6 +66,10 @@ export class PlayerService {
     }
   }
 
+  getMaxPlayers() {
+    return this.maxPlayers;
+  }
+
   // This is a terrible way of making sure localstorage data is synced....
   // Not sure what else to do just yet. 
   savePlayersData() {
