@@ -13,7 +13,7 @@ export class PlayerService {
 
   constructor() {}
 
-  getPlayers(): Player[] {
+  getAll(): Player[] {
     this.players = this.savedPlayers.map(x => Object.assign({}, x));
 
     if (this.players.length != this.maxPlayers) {
@@ -64,10 +64,6 @@ export class PlayerService {
 
       return null;
     }
-  }
-
-  getMaxPlayers() {
-    return this.maxPlayers;
   }
 
   // This is a terrible way of making sure localstorage data is synced....

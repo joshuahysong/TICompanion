@@ -1,6 +1,4 @@
-import { Unit, UnitType } from 'app/shared/unit.model';
-
-export const Units: Unit[] = [
+[
   {
     "name": "Carrier",
     "move": 1,
@@ -9,7 +7,7 @@ export const Units: Unit[] = [
     "hp": 1,
     "carry": 6,
     "cost": 3,
-    "type": UnitType.Space,
+    "type": "Space",
     "maxCount": 3
   },
   {
@@ -20,7 +18,7 @@ export const Units: Unit[] = [
     "hp": 1,
     "carry": 0,
     "cost": 0.5,
-    "type": UnitType.Space,
+    "type": "Space",
     "maxCount": 0
   },
   {
@@ -31,7 +29,7 @@ export const Units: Unit[] = [
     "hp": 1,
     "carry": 0,
     "cost": 1,
-    "type": UnitType.Space,
+    "type": "Space",
     "maxCount": 0
   },
   {
@@ -42,7 +40,7 @@ export const Units: Unit[] = [
     "hp": 1,
     "carry": 0,
     "cost": 2,
-    "type": UnitType.Space,
+    "type": "Space",
     "maxCount": 0
   },
   {
@@ -53,7 +51,7 @@ export const Units: Unit[] = [
     "hp": 1,
     "carry": 0,
     "cost": 5,
-    "type": UnitType.Space,
+    "type": "Space",
     "maxCount": 5
   },
   {
@@ -64,7 +62,7 @@ export const Units: Unit[] = [
     "hp": 1,
     "carry": 6,
     "cost": 12,
-    "type": UnitType.Space,
+    "type": "Space",
     "maxCount": 2
   },
   {
@@ -75,7 +73,7 @@ export const Units: Unit[] = [
     "hp": 0,
     "carry": 0,
     "cost": 2,
-    "type": UnitType.Ground,
+    "type": "Ground",
     "maxCount": 6
   },
   {
@@ -86,7 +84,7 @@ export const Units: Unit[] = [
     "hp": 1,
     "carry": 0,
     "cost": 0.5,
-    "type": UnitType.Ground,
+    "type": "Ground",
     "maxCount": 0
   },
   {
@@ -97,7 +95,7 @@ export const Units: Unit[] = [
     "hp": 1,
     "carry": 0,
     "cost": 0,
-    "type": UnitType.Ground,
+    "type": "Ground",
     "maxCount": 0
   },
   {
@@ -108,7 +106,7 @@ export const Units: Unit[] = [
     "hp": 2,
     "carry": 0,
     "cost": 2,
-    "type": UnitType.Ground,
+    "type": "Ground",
     "maxCount": 3
   },
   {
@@ -119,7 +117,7 @@ export const Units: Unit[] = [
     "hp": 0,
     "carry": 0,
     "cost": 0,
-    "type": UnitType.Space,
+    "type": "Space",
     "maxCount": 1
   },
   {
@@ -130,7 +128,7 @@ export const Units: Unit[] = [
     "hp": 0,
     "carry": 3,
     "cost": 4,
-    "type": UnitType.Space,
+    "type": "Space",
     "maxCount": 4
   }
 ]
