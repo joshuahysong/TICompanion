@@ -1,4 +1,4 @@
-[![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/)
+[![Build Status](https://travis-ci.org/joshuahysong/TICompanion.svg?branch=master)](https://travis-ci.org/joshuahysong/TICompanion)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/joshuahysong/TICompanion/master/LICENSE.md)
 [![GitHub issues](https://img.shields.io/github/issues/joshuahysong/TICompanion.svg)](https://github.com/joshuahysong/TICompanion/issues)
 # TI Companion
