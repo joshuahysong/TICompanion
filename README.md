@@ -16,5 +16,5 @@ To build the web app from source, run `ng build -prod --base-href="/TICompanion/
 The app is not yet released and is missing intended functionality. If you'd like to contribute please refer to the issue tracker and jump in! You can also start a discussion by filing a new issue. 
 
 This project has adopted the code of conduct defined by the [Contributor
-Covenant](http://contributor-covenant.org/) to clarify expected behavior in our
-community.
+Covenant](https://github.com/joshuahysong/TICompanion/blob/master/CODE_OF_CONDUCT.md) to clarify expected behavior in our
+community. For more information see the [Contribur Covenant website](http://contributor-covenant.org/).
