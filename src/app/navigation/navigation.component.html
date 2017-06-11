@@ -1,8 +1,9 @@
 <div class='main-nav'>
   <nav class="navbar navbar-inverse">
     <div class="container-fluid">
+
       <div class="navbar-header">
-        <button type="button" 
+        <button type="button"
           class="navbar-toggle collapsed"
           (click)="toggleState()">
           <span class="sr-only">Toggle navigation</span>
@@ -12,19 +13,34 @@
         </button>
         <a class="navbar-brand" [routerLink]="['/']">TI Companion</a>
       </div>
+
       <div class="collapse navbar-collapse"
         [ngClass]="{ 'in': isIn }">
+
         <ul class="nav navbar-nav">
+
           <li *ngFor="let player of players"
             [class.selected]="player === playerService.currentPlayer"
             (click)="onSelect(player)">
             <a [routerLink]="['/players/', player.id]">
-              <span class='glyphicon glyphicon-user'></span>
+
+              <img *ngIf="player.race; else noRace"
+                src="\assets\img\{{player.race.iconPath}}"
+                style="width:20px; height:20px;"
+                class='glyphicon'>
+
+                <ng-template #noRace>
+                  <span class='glyphicon glyphicon-user'
+                    style="width:20px; height:20px;"></span>
+                </ng-template>
+
               <span>{{player.name}}</span>
             </a>
           </li>
+
         </ul>
       </div>
+
     </div>
   </nav>
 </div>

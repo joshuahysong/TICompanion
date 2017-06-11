@@ -17,4 +17,9 @@ The app is not yet released and is missing intended functionality. If you'd like
 
 This project has adopted the code of conduct defined by the [Contributor
 Covenant](https://github.com/joshuahysong/TICompanion/blob/master/CODE_OF_CONDUCT.md) to clarify expected behavior in our
-community. For more information see the [Contribur Covenant website](http://contributor-covenant.org/).
+community. For more information see the [Contributor Covenant website](http://contributor-covenant.org/).
+
+## Attributions
+
+Twilight Imperium Race icons found at the following link: 
+[https://boardgamegeek.com/filepage/119733/twilight-imperium-vector-races-icons](https://boardgamegeek.com/filepage/119733/twilight-imperium-vector-races-icons)

@@ -1,26 +1,26 @@
 <div *ngIf="player">
-  
-  <form class="form-inline" role="form"> 
+
+  <form class="form-inline" role="form">
 
     <div class="form-group">
       <label for="playerName">Name</label>
-        <input type="text" 
+        <input type="text"
           [(ngModel)]="player.name"
-          class="form-control" 
-          id="playerName" 
-          name="playerName" 
+          class="form-control"
+          id="playerName"
+          name="playerName"
           placeholder="Player Name">
     </div>
 
     <div class="form-group">
       <label for="race">Race</label>
-      <select 
-        [ngModel]="player?.race?.id" 
+      <select
+        [ngModel]="player?.race?.id"
         (ngModelChange)="raceOnChange($event)"
-        class="form-control" 
+        class="form-control"
         name="race" id="race">
         <option value="null" disabled>Select the race</option>
-        <option *ngFor="let race of races" 
+        <option *ngFor="let race of races"
           [ngValue]="race.id">{{race.name}}</option>
       </select>
     </div>

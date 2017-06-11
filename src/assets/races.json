@@ -2,6 +2,7 @@
   {
     "id": 1,
     "name": "The Arborec",
+    "iconPath": "arborec.png",
     "unitAdjustment": [
       {
         "name": "Flagship",
@@ -19,6 +20,7 @@
   {
     "id": 2,
     "name": "The Barony of Letnev",
+    "iconPath": "letnev.png",
     "unitAdjustment": [
       {
         "name": "Flagship",
@@ -36,6 +38,7 @@
   {
     "id": 3,
     "name": "The Brotherhood of Yin",
+    "iconPath": "yin.png",
     "unitAdjustment": [
       {
         "name": "Flagship",
@@ -53,6 +56,7 @@
   {
     "id": 4,
     "name": "The Clan of Saar",
+    "iconPath": "saar.png",
     "unitAdjustment": [
       {
         "name": "Space Dock",
@@ -81,6 +85,7 @@
   {
     "id": 5,
     "name": "The Embers of Muaat",
+    "iconPath": "muaat.svg",
     "unitAdjustment": [
       {
         "name": "War Sun",
@@ -109,6 +114,7 @@
   {
     "id": 6,
     "name": "The Emirates of Hacan",
+    "iconPath": "hacan.png",
     "unitAdjustment": [
       {
         "name": "Flagship",
@@ -126,6 +132,7 @@
   {
     "id": 7,
     "name": "The Federation of Sol",
+    "iconPath": "sol.png",
     "unitAdjustment": [
       {
         "name": "Flagship",
@@ -143,6 +150,7 @@
   {
     "id": 8,
     "name": "The Ghosts of Creuss",
+    "iconPath": "creuss.png",
     "unitAdjustment": [
       {
         "name": "Flagship",
@@ -160,6 +168,7 @@
   {
     "id": 9,
     "name": "The L1z1x Mindnet",
+    "iconPath": "lizix.png",
     "unitAdjustment": [
       {
         "name": "Dreadnought",
@@ -188,6 +197,7 @@
   {
     "id": 10,
     "name": "The Mentak Coalition",
+    "iconPath": "mentak.png",
     "unitAdjustment": [
       {
         "name": "Flagship",
@@ -205,6 +215,7 @@
   {
     "id": 11,
     "name": "The Naalu Collective",
+    "iconPath": "naalu.png",
     "unitAdjustment": [
       {
         "name": "Fighter",
@@ -233,11 +244,25 @@
   {
     "id": 12,
     "name": "The Nekro Virus",
-    "unitAdjustment": []
+    "iconPath": "necro.png",
+    "unitAdjustment": [
+      {
+        "name": "Flagship",
+        "move": 1,
+        "attack": -9,
+        "attacks": 3,
+        "hp": 2,
+        "carry": 1,
+        "cost": 9,
+        "type": "Space",
+        "maxCount": 0
+      }
+    ]
   },
   {
     "id": 13,
     "name": "The Sardakk N’orr",
+    "iconPath": "sardakk norr.png",
     "unitAdjustment": [
       {
         "name": "Carrier",
@@ -365,6 +390,7 @@
   {
     "id": 14,
     "name": "The Universities of Jol-Nar",
+    "iconPath": "jol-nar.png",
     "unitAdjustment": [
       {
         "name": "Carrier",
@@ -492,6 +518,7 @@
   {
     "id": 15,
     "name": "The Winnu",
+    "iconPath": "winnu.png",
     "unitAdjustment": [
       {
         "name": "Flagship",
@@ -509,6 +536,7 @@
   {
     "id": 16,
     "name": "The Xxcha Kingdom",
+    "iconPath": "xxcha.png",
     "unitAdjustment": [
       {
         "name": "Flagship",
@@ -526,6 +554,7 @@
   {
     "id": 17,
     "name": "The Yssaril Tribe",
+    "iconPath": "yssaril.png",
     "unitAdjustment": [
       {
         "name": "Flagship",
