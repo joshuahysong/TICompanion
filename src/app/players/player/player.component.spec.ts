@@ -5,12 +5,11 @@ import { Component } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
 import { PlayerComponent } from './player.component';
-import { Race } from 'app/shared/race.model';
-import { RaceService } from 'app/shared/race.service';
+import { Race } from 'app/races/race.model';
+import { RaceService } from 'app/races/race.service';
 import { Player } from '../shared/player.model';
 import { PlayerService } from '../shared/player.service';
-import { Unit } from 'app/shared/unit.model';
-import { Units } from 'assets/units';
+import { Unit } from 'app/units/unit.model';
 
 @Component({
   template: ''
