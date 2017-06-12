@@ -25,7 +25,7 @@
             <a [routerLink]="['/players/', player.id]">
 
               <img *ngIf="player.race; else noRace"
-                src="{{url}}/assets/img/{{player.race.iconPath}}"
+                src="{{baseURL}}/assets/img/{{player.race.iconPath}}"
                 style="width:20px; height:20px;"
                 class='glyphicon'>
 
@@ -35,6 +35,13 @@
                 </ng-template>
 
               <span>{{player.name}}</span>
+            </a>
+          </li>
+          
+          <li (click)="resetData()">
+            <a [routerLink]="['/players/1']">
+              <span class='glyphicon glyphicon-refresh'></span>
+              Reset (Debugging)
             </a>
           </li>
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
+import { environment } from 'environments/environment';
 
 import { Player } from '../players/shared/player.model';
 import { PlayerService } from '../players/shared/player.service'
@@ -12,6 +13,7 @@ import { PlayerService } from '../players/shared/player.service'
 export class NavigationComponent implements OnInit {
   players: Player[];
   isIn = false; // collapsed state
+  baseURL: string = "";
 
   constructor(
     private playerService: PlayerService,
@@ -19,6 +21,9 @@ export class NavigationComponent implements OnInit {
     private route: ActivatedRoute) { }
 
   ngOnInit() {
+    if (environment.production) {
+      this.baseURL = '/TICompanion';
+    }
     this.getPlayers(); 
   }
 
@@ -35,5 +40,11 @@ export class NavigationComponent implements OnInit {
 
   getPlayers() {
     this.players = this.playerService.getAll()
+  }
+
+  resetData() {
+    localStorage.removeItem('players')
+    localStorage.clear();
+    location.reload();
   }
 }

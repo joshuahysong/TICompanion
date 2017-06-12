@@ -1,0 +1,19 @@
+<table *ngIf="player" 
+  class="table table-bordered table-hover table-responsive table-condensed">
+  <tr *ngFor="let technology of player.technologies">
+
+    <td class="{{ technology.type === 'Red' ? 'danger' : 
+      technology.type === 'Blue' ? 'info' :
+      technology.type === 'Yellow' ? 'warning' :
+      technology.type === 'Green' ? 'success' : 'active'}}"
+        (click)="researchTechnology(technology.id)">
+
+        <input type="checkbox"
+          [checked]="technology.researched">
+        <label>
+          {{technology.name}}
+        </label>
+
+    </td>
+  </tr>
+</table>

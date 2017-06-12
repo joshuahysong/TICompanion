@@ -12,14 +12,17 @@ import { PlayerComponent } from './players/player/player.component';
 import { PlayerService } from './players/shared/player.service';
 import { RaceService } from './races/race.service';
 import { UnitService } from 'app/units/unit.service';
+import { TechnologyService } from 'app/technologies/technology.service';
 import { PlayerStatsComponent } from './players/player-stats/player-stats.component';
+import { PlayerTechnologyComponent } from './players/player-technology/player-technology.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
     PlayerComponent,
-    PlayerStatsComponent
+    PlayerStatsComponent,
+    PlayerTechnologyComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +30,12 @@ import { PlayerStatsComponent } from './players/player-stats/player-stats.compon
     HttpModule,
     AppRoutingModule
   ],
-  providers: [PlayerService, RaceService, UnitService],
+  providers: [
+    PlayerService,
+    RaceService, 
+    UnitService,
+    TechnologyService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
