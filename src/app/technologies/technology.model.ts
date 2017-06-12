@@ -9,9 +9,10 @@ export interface ITechnology {
   id: number;
   name: string;
   type: TechnologyType;
-  prerequisite: number[];
+  prerequisites: [string[], string[]];
   status: string;
-  researched: boolean;
+  isResearched: boolean;
+  isAvailable: boolean;
   unitAdjustment: string;
 }
 
@@ -19,16 +20,18 @@ export class Technology {
   id: number;
   name: string;
   type: TechnologyType;
-  prerequisite: number[];
-  researched: boolean;
+  prerequisites:  [string[], string[]];
+  isResearched: boolean;
+  isAvailable: boolean;
   unitAdjustment: string;
 
   constructor (params: ITechnology) {
     this.id = params.id
     this.name = params.name;
     this.type =  params.type;
-    this.prerequisite = params.prerequisite;
-    this.researched = params.researched;
+    this.prerequisites = params.prerequisites;
+    this.isResearched = params.isResearched;
+    this.isAvailable = params.isAvailable;
     this.unitAdjustment = params.unitAdjustment;
   }
 }

@@ -9,8 +9,8 @@
         (click)="researchTechnology(technology.id)">
 
         <input type="checkbox"
-          [checked]="technology.researched">
-        <label>
+          [checked]="technology.isResearched">
+        <label [class.available]="technology.isAvailable">
           {{technology.name}}
         </label>
 
