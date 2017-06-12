@@ -1,0 +1,20 @@
+.checkbox {
+  margin-top: 1px;
+  margin-bottom: 1px;
+
+}
+
+label {
+  font-weight: normal;
+  min-height: 20px;
+    padding-left: 20px;
+    margin-bottom: 0;
+    font-weight: normal;
+    cursor: normal;
+}
+
+input[type="checkbox"] {
+  position: absolute;
+  margin-top: 4px \9;
+  margin-left: 0px;
+}

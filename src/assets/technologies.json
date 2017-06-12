@@ -1,0 +1,258 @@
+[
+  {
+    "id": 1,
+    "name": "Hylar V Assualt Laser",
+    "type": "Red",
+    "researched": false,
+    "prerequisites": [],
+    "unitAdjustment": []
+  },
+  {
+    "id": 2,
+    "name": "Deep Space Cannon",
+    "type": "Red",
+    "researched": false,
+    "prerequisites": [],
+    "unitAdjustment": []
+  },
+  {
+    "id": 3,
+    "name": "Automated Defense Turrets",
+    "type": "Red",
+    "researched": false,
+    "prerequisites": [],
+    "unitAdjustment": []
+  },
+  {
+    "id": 4,
+    "name": "Magen Defense Grid",
+    "type": "Red",
+    "researched": false,
+    "prerequisites": [],
+    "unitAdjustment": []
+  },
+  {
+    "id": 5,
+    "name": "Assault Cannon",
+    "type": "Red",
+    "researched": false,
+    "prerequisites": [],
+    "unitAdjustment": []
+  },
+  {
+    "id": 6,
+    "name": "Graviton Negator",
+    "type": "Red",
+    "researched": false,
+    "prerequisites": [],
+    "unitAdjustment": []
+  },
+  {
+    "id": 7,
+    "name": "War Sun",
+    "type": "Red",
+    "researched": false,
+    "prerequisites": [], 
+    "unitAdjustment": []
+  },
+  {
+    "id": 8,
+    "name": "Duranium Armor",
+    "type": "Red",
+    "researched": false,
+    "prerequisites": [],
+    "unitAdjustment": []
+  },
+  {
+    "id": 9,
+    "name": "Antimass Deflectors",
+    "type": "Blue",
+    "researched": false,
+    "prerequisites": [], 
+    "unitAdjustment": []
+  },
+  {
+    "id": 10,
+    "name": "XRD Transporters",
+    "type": "Blue",
+    "researched": false,
+    "prerequisites": [], 
+    "unitAdjustment": []
+  },
+  {
+    "id": 11,
+    "name": "Maneuvering Jets",
+    "type": "Blue",
+    "researched": false,
+    "prerequisites": [], 
+    "unitAdjustment": []
+  },
+  {
+    "id": 12,
+    "name": "Light/Wave Deflector",
+    "type": "Blue",
+    "researched": false,
+    "prerequisites": [], 
+    "unitAdjustment": []
+  },
+  {
+    "id": 13,
+    "name": "Fleet Logistics",
+    "type": "Blue",
+    "researched": false,
+    "prerequisites": [], 
+    "unitAdjustment": []
+  },
+  {
+    "id": 14,
+    "name": "Type IV Drive",
+    "type": "Blue",
+    "researched": false,
+    "prerequisites": [], 
+    "unitAdjustment": []
+  },
+  {
+    "id": 15,
+    "name": "Advanced Fighters",
+    "type": "Blue",
+    "researched": false,
+    "prerequisites": [], 
+    "unitAdjustment": []
+  },
+  {
+    "id": 16,
+    "name": "Gravity Drive",
+    "type": "Blue",
+    "researched": false,
+    "prerequisites": [], 
+    "unitAdjustment": []
+  },
+  {
+    "id": 17,
+    "name": "Stasis Capsules",
+    "type": "Green",
+    "researched": false,
+    "prerequisites": [], 
+    "unitAdjustment": []
+  },
+  {
+    "id": 18,
+    "name": "Cybernetics",
+    "type": "Green",
+    "researched": false,
+    "prerequisites": [], 
+    "unitAdjustment": []
+  },
+  {
+    "id": 19,
+    "name": "Gen Synthesis",
+    "type": "Green",
+    "researched": false,
+    "prerequisites": [], 
+    "unitAdjustment": []
+  },
+  {
+    "id": 20,
+    "name": "Neural Motivator",
+    "type": "Green",
+    "researched": false,
+    "prerequisites": [], 
+    "unitAdjustment": []
+  },
+  {
+    "id": 21,
+    "name": "Dacxive Animators",
+    "type": "Green",
+    "researched": false,
+    "prerequisites": [], 
+    "unitAdjustment": []
+  },
+  {
+    "id": 22,
+    "name": "Hyper Metabolism",
+    "type": "Green",
+    "researched": false,
+    "prerequisites": [], 
+    "unitAdjustment": []
+  },
+  {
+    "id": 23,
+    "name": "X 89 Bacterial Weapon",
+    "type": "Green",
+    "researched": false,
+    "prerequisites": [], 
+    "unitAdjustment": []
+  },
+  {
+    "id": 24,
+    "name": "Neural Computing",
+    "type": "Green",
+    "researched": false,
+    "prerequisites": [], 
+    "unitAdjustment": []
+  },
+  {
+    "id": 25,
+    "name": "Graviton Laser System",
+    "type": "Yellow",
+    "researched": false,
+    "prerequisites": [], 
+    "unitAdjustment": []
+  },
+  {
+    "id": 26,
+    "name": "Transit Diodes",
+    "type": "Yellow",
+    "researched": false,
+    "prerequisites": [], 
+    "unitAdjustment": []
+  },
+  {
+    "id": 27,
+    "name": "Enviro Compensator",
+    "type": "Yellow",
+    "researched": false,
+    "prerequisites": [], 
+    "unitAdjustment": []
+  },
+  {
+    "id": 28,
+    "name": "Sarween Tools",
+    "type": "Yellow",
+    "researched": false,
+    "prerequisites": [], 
+    "unitAdjustment": []
+  },
+  {
+    "id": 29,
+    "name": "Micro Technology",
+    "type": "Yellow",
+    "researched": false,
+    "prerequisites": [], 
+    "unitAdjustment": []
+  },
+  {
+    "id": 30,
+    "name": "Nano Technology",
+    "type": "Yellow",
+    "researched": false,
+    "prerequisites": [], 
+    "unitAdjustment": []
+  },
+  {
+    "id": 31,
+    "name": "Integrated Economy",
+    "type": "Yellow",
+    "researched": false,
+    "prerequisites": [], 
+    "unitAdjustment": []
+  },
+  {
+    "id": 32,
+    "name": "Transfabrication",
+    "type": "Yellow",
+    "researched": false,
+    "prerequisites": [], 
+    "unitAdjustment": []
+  }
+]

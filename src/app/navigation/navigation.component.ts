@@ -36,4 +36,10 @@ export class NavigationComponent implements OnInit {
   getPlayers() {
     this.players = this.playerService.getAll()
   }
+
+  resetData() {
+    localStorage.removeItem('players')
+    localStorage.clear();
+    location.reload();
+  }
 }

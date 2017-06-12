@@ -1,4 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Location } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 
@@ -18,7 +19,7 @@ export class PlayerComponent implements OnInit, OnDestroy {
   
   player: Player;
   races: Race[];
-  units: Unit[];  
+  units: Unit[]; 
   sub: Subscription;
   activeTab: number = 1;
 
@@ -27,7 +28,8 @@ export class PlayerComponent implements OnInit, OnDestroy {
     private raceService: RaceService,
     private unitService: UnitService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private location: Location
   ) {}
 
   ngOnInit() {
@@ -36,10 +38,17 @@ export class PlayerComponent implements OnInit, OnDestroy {
       this.raceService.getAll().subscribe(races => {
         this.races = races;
         this.unitService.getAll().subscribe(units => {
+          
           this.units = units;
           this.player = this.playerService.getPlayer(id);
           this.player.units = this.units.map(x => Object.assign({}, x));
-          this.adjustUnitsByRace()
+          this.adjustUnitsByRace();
+
+          if (location.pathname.endsWith('technology')) {
+            this.activeTab = 2;
+          } else {
+            this.activeTab = 1;
+          }
         });
       });
     });
