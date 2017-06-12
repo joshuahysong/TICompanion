@@ -20,6 +20,7 @@ export class PlayerComponent implements OnInit, OnDestroy {
   races: Race[];
   units: Unit[];  
   sub: Subscription;
+  activeTab: number = 1;
 
   constructor(
     private playerService: PlayerService,
@@ -82,5 +83,9 @@ export class PlayerComponent implements OnInit, OnDestroy {
         }
       }
     }
+  }
+
+  onTabSelect(tabIndex: number) {
+    this.activeTab = tabIndex;
   }
 }

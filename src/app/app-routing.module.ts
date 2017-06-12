@@ -3,13 +3,15 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { PlayerComponent } from './players/player/player.component';
 import { PlayerStatsComponent } from './players/player-stats/player-stats.component';
+import { PlayerTechnologyComponent } from './players/player-technology/player-technology.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/players/1/stats', pathMatch: 'full' },
   { path: 'players/:id', component: PlayerComponent,
     children: [
       { path: '', redirectTo: 'stats', pathMatch: 'full'},
-      { path: 'stats', component: PlayerStatsComponent}
+      { path: 'stats', component: PlayerStatsComponent},
+      { path: 'technology', component: PlayerTechnologyComponent}
     ] 
   },
   { path: '**', redirectTo: '/players/1/stats', pathMatch: 'full' },

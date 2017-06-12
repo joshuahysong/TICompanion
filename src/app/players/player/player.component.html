@@ -29,14 +29,15 @@
 
   <ul class="nav nav-tabs">
     <li role="presentation"
-      class="active">
-      <a [routerLink]="['/player', player.id, 'stats']">Stats</a>
+      [class.active]="activeTab == 1"
+      (click)="onTabSelect(1)">
+      <a data-toggle="tab" [routerLink]="['/players', player.id, 'stats']">Stats</a>
     </li>
-    <li role="presentation">
-      <a [routerLink]="['/player', player.id, 'technology']">Technology</a>
-    </li>
-    <li role="presentation">
-      <a [routerLink]="['/player', player.id, 'battlesimulation']">Battle Simulation</a>
+
+    <li role="presentation"
+      [class.active]="activeTab == 2"
+      (click)="onTabSelect(2)">
+      <a data-toggle="tab" [routerLink]="['/players', player.id, 'technology']">Technology</a>
     </li>
   </ul>
 
