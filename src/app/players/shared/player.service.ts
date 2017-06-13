@@ -2,23 +2,25 @@ import { Injectable } from '@angular/core';
 
 import { Player } from './player.model';
 
-import { StorageSync, StorageStrategy } from 'angular2-storage-sync';
+//import { StorageSync, StorageStrategy } from 'angular2-storage-sync';
 
 @Injectable()
 export class PlayerService {
   players: Player[] = [];
   currentPlayer: Player;
   maxPlayers: number = 6 // TODO Needs to be a user setting eventually
-  @StorageSync('players') savedPlayers: Player[] = [];
+  //@StorageSync('players') savedPlayers: Player[] = [];
 
   constructor() {}
 
   getAll(): Player[] {
-    this.players = this.savedPlayers.map(x => Object.assign({}, x));
-
-    if (this.players.length != this.maxPlayers) {
-      this.players = []
-      for (var i = 1; i <= this.maxPlayers; i++) {
+    this.players = [];
+    for (var i = 1; i <= this.maxPlayers; i++) {
+      let player = localStorage['Player' + i]
+      if (player) {
+        
+        this.players.push(JSON.parse(player))
+      } else {
         this.addPlayer(i);
       }
     }
@@ -38,7 +40,7 @@ export class PlayerService {
     this.currentPlayer = player;
 
     this.players.push(player);
-    this.savePlayersData();
+    localStorage['Player' + id] = JSON.stringify(player);
 
     return player;
   }
@@ -69,6 +71,10 @@ export class PlayerService {
   // This is a terrible way of making sure localstorage data is synced....
   // Not sure what else to do just yet. 
   savePlayersData() {
-    this.savedPlayers = this.players.map(x => Object.assign({}, x));
+
+    for (var i = 1; i <= this.maxPlayers; i++) {
+      let player = this.players[i-1]
+      localStorage['Player' + i] = JSON.stringify(player);
+    }
   }
 }
