@@ -33,6 +33,7 @@ export class PlayerTechnologyComponent implements OnInit {
           if (!this.player.technologies) {
             this.player.technologies = technologies.map(x => Object.assign({}, x));
           }
+          this.adjustTechnologyAvailability()
         });
       });
   }
@@ -42,12 +43,48 @@ export class PlayerTechnologyComponent implements OnInit {
   }
   
   researchTechnology(id: number) {
-    console.log(1)
     let selectedTech = this.player.technologies.find(e => e.id === id);
     if (selectedTech) {
-      selectedTech.researched = !selectedTech.researched;
+      selectedTech.isResearched = !selectedTech.isResearched;
       this.playerService.savePlayersData();
     }
+    this.adjustTechnologyAvailability();
     event.stopPropagation();
+  }
+
+  adjustTechnologyAvailability() {
+    for (var i = 0; i < this.player.technologies.length; i++) {
+      let playerTech = this.player.technologies[i];
+      playerTech.isAvailable = false;
+
+      // Check if any prerequisites exist
+      if (playerTech.prerequisites.length > 0) {
+        let prereqArray = playerTech.prerequisites;
+
+        for (let a = 0; a < prereqArray.length; a++) {
+          let prereqCount: number = prereqArray[a].length;
+          let prereqFound: number = 0;
+
+          // Check prerequisite subarray. If all are researched then success.
+          if (prereqCount > 0) {
+            for (let b = 0; b < prereqCount; b++) {
+              let tech = this.player.technologies
+                .find(e => e.name === prereqArray[a][b])
+              if (tech && tech.isResearched) {
+                prereqFound++;
+              }
+            }
+          }
+
+          // prereqs met if count is equal to total needed techs
+          if (prereqFound === prereqCount) {
+            playerTech.isAvailable = true;
+            continue;
+          }
+        }
+      } else {
+        playerTech.isAvailable = true;
+      }
+    }
   }
 }
