@@ -9,6 +9,10 @@ The current build in the [gh-pages](https://github.com/joshuahysong/TICompanion/
 
 ## Build
 
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.6.
+
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
 To build the web app from source, run `ng build -prod --base-href="/TICompanion/"`. The build artifacts will be stored in the `dist/` directory. Change the `--base-href` target to match your deployment environment.
 
 ## Contribute
@@ -21,5 +25,5 @@ community. For more information see the [Contributor Covenant website](http://co
 
 ## Attributions
 
-Twilight Imperium Race icons found at the following link: 
+Twilight Imperium Race icons can be found at the following link: 
 [https://boardgamegeek.com/filepage/119733/twilight-imperium-vector-races-icons](https://boardgamegeek.com/filepage/119733/twilight-imperium-vector-races-icons)
