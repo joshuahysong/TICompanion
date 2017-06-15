@@ -1,28 +1,47 @@
 import { Injectable } from '@angular/core';
 
 import { Player } from './player.model';
+import { Race } from 'app/races/race.model';
+import { RaceService } from 'app/races/race.service';
+import { Unit } from 'app/units/unit.model';
+import { UnitService } from 'app/units/unit.service';
 
 @Injectable()
 export class PlayerService {
   players: Player[] = [];
+  races: Race[];
+  units: Unit[]; 
   currentPlayer: Player;
   maxPlayers: number = 6 // TODO Needs to be a user setting eventually
 
-  constructor() {}
+  constructor(
+    private raceService: RaceService,
+    private unitService: UnitService
+  ) {}
 
   getAll(): Player[] {
     this.players = [];
     for (var i = 1; i <= this.maxPlayers; i++) {
       let player = localStorage['Player' + i]
       if (player) {
-        
         this.players.push(JSON.parse(player))
       } else {
         this.addPlayer(i);
       }
     }
-
     return this.players;
+  }
+
+  private getAllPlayers() {
+    this.players = [];
+    for (var i = 1; i <= this.maxPlayers; i++) {
+      let player = localStorage['Player' + i]
+      if (player) {
+        this.players.push(JSON.parse(player))
+      } else {
+        this.addPlayer(i);
+      }
+    }
   }
 
   getPlayer(id: number): Player {
@@ -38,7 +57,7 @@ export class PlayerService {
 
     this.players.push(player);
     localStorage['Player' + id] = JSON.stringify(player);
-
+    console.log(this.units)
     return player;
   }
 
