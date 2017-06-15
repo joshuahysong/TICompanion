@@ -2,14 +2,11 @@ import { Injectable } from '@angular/core';
 
 import { Player } from './player.model';
 
-//import { StorageSync, StorageStrategy } from 'angular2-storage-sync';
-
 @Injectable()
 export class PlayerService {
   players: Player[] = [];
   currentPlayer: Player;
   maxPlayers: number = 6 // TODO Needs to be a user setting eventually
-  //@StorageSync('players') savedPlayers: Player[] = [];
 
   constructor() {}
 
@@ -43,29 +40,6 @@ export class PlayerService {
     localStorage['Player' + id] = JSON.stringify(player);
 
     return player;
-  }
-
-  deletePlayer(id: number): number {
-    let playerIndex = this.players.findIndex(x => x.id === id);
-
-    if (playerIndex > -1) {
-      this.players.splice(playerIndex, 1);
-      this.savePlayersData();
-    }
-
-    // Find id of prev player if any or next if first and return
-    if (this.players[playerIndex - 1]) {
-
-      return this.players[playerIndex - 1].id;
-
-    } else if (this.players[playerIndex]) {
-
-      return this.players[playerIndex].id;
-
-    } else {
-
-      return null;
-    }
   }
 
   // This is a terrible way of making sure localstorage data is synced....
