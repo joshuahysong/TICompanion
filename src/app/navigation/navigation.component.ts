@@ -20,11 +20,13 @@ export class NavigationComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute) { }
 
-  ngOnInit() {
+  ngOnInit() {      
     if (environment.production) {
       this.baseURL = '/TICompanion';
     }
-    this.getPlayers(); 
+    this.playerService.getAll().subscribe(players => {
+      this.players = players;
+    }); 
   }
 
   toggleState() {
@@ -36,10 +38,6 @@ export class NavigationComponent implements OnInit {
     if (this.isIn) {
       this.toggleState();
     }
-  }
-
-  getPlayers() {
-    this.players = this.playerService.getAll()
   }
 
   resetData() {

@@ -18,8 +18,8 @@ export class RaceService {
     } else {
       return this.http.get(this.racesUrl)
         .map((res: Response) => res.json())
-        .do((units) => {
-          this.races = units;
+        .do((races) => {
+          this.races = races;
         })
      }
   }

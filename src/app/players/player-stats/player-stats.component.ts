@@ -29,7 +29,9 @@ export class PlayerStatsComponent implements OnInit, OnDestroy {
       let id = +params['id'];
         this.unitService.getAll().subscribe(units => {
           this.units = units;
-          this.player = this.playerService.getPlayer(id);
+          this.playerService.getPlayer(id).subscribe(player => {
+            this.player = player;
+          });
         });
       });
   }

@@ -27,13 +27,15 @@ export class PlayerTechnologyComponent implements OnInit {
     this.sub = this.route.parent.params.subscribe(params => {
       let id = +params['id'];
         this.technologyService.getAll().subscribe(technologies => {
-          this.player = this.playerService.getPlayer(id);
-          
-          // Load starting technology list for this player
-          if (!this.player.technologies) {
-            this.player.technologies = technologies.map(x => Object.assign({}, x));
-          }
-          this.adjustTechnologyAvailability()
+          this.playerService.getPlayer(id).subscribe(player => {
+            this.player = player;
+            
+            // Load starting technology list for this player
+            if (!this.player.technologies) {
+              this.player.technologies = technologies.map(x => Object.assign({}, x));
+            }
+            this.adjustTechnologyAvailability();
+          });
         });
       });
   }
