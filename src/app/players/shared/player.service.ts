@@ -1,29 +1,47 @@
 import { Injectable } from '@angular/core';
 
 import { Player } from './player.model';
-
-import { StorageSync, StorageStrategy } from 'angular2-storage-sync';
+import { Race } from 'app/races/race.model';
+import { RaceService } from 'app/races/race.service';
+import { Unit } from 'app/units/unit.model';
+import { UnitService } from 'app/units/unit.service';
 
 @Injectable()
 export class PlayerService {
   players: Player[] = [];
+  races: Race[];
+  units: Unit[]; 
   currentPlayer: Player;
   maxPlayers: number = 6 // TODO Needs to be a user setting eventually
-  @StorageSync('players') savedPlayers: Player[] = [];
 
-  constructor() {}
+  constructor(
+    private raceService: RaceService,
+    private unitService: UnitService
+  ) {}
 
   getAll(): Player[] {
-    this.players = this.savedPlayers.map(x => Object.assign({}, x));
-
-    if (this.players.length != this.maxPlayers) {
-      this.players = []
-      for (var i = 1; i <= this.maxPlayers; i++) {
+    this.players = [];
+    for (var i = 1; i <= this.maxPlayers; i++) {
+      let player = localStorage['Player' + i]
+      if (player) {
+        this.players.push(JSON.parse(player))
+      } else {
         this.addPlayer(i);
       }
     }
-
     return this.players;
+  }
+
+  private getAllPlayers() {
+    this.players = [];
+    for (var i = 1; i <= this.maxPlayers; i++) {
+      let player = localStorage['Player' + i]
+      if (player) {
+        this.players.push(JSON.parse(player))
+      } else {
+        this.addPlayer(i);
+      }
+    }
   }
 
   getPlayer(id: number): Player {
@@ -38,37 +56,18 @@ export class PlayerService {
     this.currentPlayer = player;
 
     this.players.push(player);
-    this.savePlayersData();
-
+    localStorage['Player' + id] = JSON.stringify(player);
+    console.log(this.units)
     return player;
-  }
-
-  deletePlayer(id: number): number {
-    let playerIndex = this.players.findIndex(x => x.id === id);
-
-    if (playerIndex > -1) {
-      this.players.splice(playerIndex, 1);
-      this.savePlayersData();
-    }
-
-    // Find id of prev player if any or next if first and return
-    if (this.players[playerIndex - 1]) {
-
-      return this.players[playerIndex - 1].id;
-
-    } else if (this.players[playerIndex]) {
-
-      return this.players[playerIndex].id;
-
-    } else {
-
-      return null;
-    }
   }
 
   // This is a terrible way of making sure localstorage data is synced....
   // Not sure what else to do just yet. 
   savePlayersData() {
-    this.savedPlayers = this.players.map(x => Object.assign({}, x));
+
+    for (var i = 1; i <= this.maxPlayers; i++) {
+      let player = this.players[i-1]
+      localStorage['Player' + i] = JSON.stringify(player);
+    }
   }
 }

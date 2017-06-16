@@ -7,20 +7,31 @@ import { Race } from './race.model';
 
 @Injectable()
 export class RaceService {
-
-  private racesUrl = 'assets/races.json'
+  races: Race[];
+  private racesUrl = 'assets/races.json';
 
   constructor(private http: Http) { }
 
   getAll(): Observable<Race[]> {
-    return this.http.get(this.racesUrl)
-      .map((res: Response) => res.json());
+    if (this.races) {
+      return Observable.of(this.races);
+    } else {
+      return this.http.get(this.racesUrl)
+        .map((res: Response) => res.json())
+        .do((units) => {
+          this.races = units;
+        })
+     }
   }
 
   getByID(id: number): Observable<Race> {
-    return this.getAll().map(all => {
-      return all.find(e => e.id === id);
-    });
+    if (this.races) {
+      return Observable.of(this.races.find(e => e.id === id));
+    } else {
+      return this.getAll().map(all => {
+        return all.find(e => e.id === id);
+      });
+    }
   }
 }
 
