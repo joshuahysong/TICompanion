@@ -1,4 +1,7 @@
 import { Injectable } from '@angular/core';
+import { Http, Response } from '@angular/http';
+import { Observable } from 'rxjs/Rx';
+import 'rxjs/add/operator/map'
 
 import { Player } from './player.model';
 import { Race } from 'app/races/race.model';
@@ -8,8 +11,7 @@ import { UnitService } from 'app/units/unit.service';
 
 @Injectable()
 export class PlayerService {
-  players: Player[] = [];
-  races: Race[];
+  players: Player[];
   units: Unit[]; 
   currentPlayer: Player;
   maxPlayers: number = 6 // TODO Needs to be a user setting eventually
@@ -19,45 +21,68 @@ export class PlayerService {
     private unitService: UnitService
   ) {}
 
-  getAll(): Player[] {
-    this.players = [];
-    for (var i = 1; i <= this.maxPlayers; i++) {
-      let player = localStorage['Player' + i]
-      if (player) {
-        this.players.push(JSON.parse(player))
+  getAll(): Observable<Player[]> {
+    if (this.players) {
+      return Observable.of(this.players);
+    } else {
+      if (this.units) {
+        this.players = this.getAllPlayers();
+        return Observable.of(this.players);
       } else {
-        this.addPlayer(i);
-      }
-    }
-    return this.players;
-  }
-
-  private getAllPlayers() {
-    this.players = [];
-    for (var i = 1; i <= this.maxPlayers; i++) {
-      let player = localStorage['Player' + i]
-      if (player) {
-        this.players.push(JSON.parse(player))
-      } else {
-        this.addPlayer(i);
+        return this.unitService.getAll().map(units => {
+          this.units = units;
+          this.players = this.getAllPlayers();
+          return this.players;
+        });
       }
     }
   }
 
-  getPlayer(id: number): Player {
-    let playerIndex = this.players.findIndex(x => x.id == id);
-    this.savePlayersData();
-    this.currentPlayer = this.players[playerIndex] as Player;
-    return this.currentPlayer;
+  private getAllPlayers(): Player[] {
+    let players = []
+    for (var i = 1; i <= this.maxPlayers; i++) {
+      let player = localStorage['Player' + i]
+      if (player) {
+        players.push(JSON.parse(player))
+      } else {
+        players.push(this.addPlayer(i));
+      }
+    }
+    return players;
+  }
+
+  getPlayer(id: number): Observable<Player> {
+
+      // if (this.races) {
+      //   return Observable.of(this.races.find(e => e.id === id));
+      // } else {
+      //   return this.getAll().map(all => {
+      //     let player = all.find(e => e.id === id);
+      //     this.currentPlayer = player;
+      //     return player;
+      //   });
+      // }
+
+    if (this.players) {
+      return Observable.of(this.players.find(e => e.id === id));
+    } else {
+      return this.getAll().map(all => {
+        let player = all.find(e => e.id === id);
+        this.currentPlayer = player;
+        return player;
+      });
+    }
+    // let playerIndex = this.players.findIndex(x => x.id == id);
+    // this.savePlayersData();
+    // this.currentPlayer = this.players[playerIndex] as Player;
+    // return this.currentPlayer;
   }
 
   addPlayer(id: number): Player {
     let player: Player = new Player(id, 'Player ' + id);
+    player.units = this.units;
     this.currentPlayer = player;
-
-    this.players.push(player);
     localStorage['Player' + id] = JSON.stringify(player);
-    console.log(this.units)
     return player;
   }
 

@@ -38,17 +38,18 @@ export class PlayerComponent implements OnInit, OnDestroy {
       this.raceService.getAll().subscribe(races => {
         this.races = races;
         this.unitService.getAll().subscribe(units => {
-          
           this.units = units;
-          this.player = this.playerService.getPlayer(id);
-          this.player.units = this.units.map(x => Object.assign({}, x));
-          this.adjustUnitsByRace();
+          this.playerService.getPlayer(id).subscribe(player => {
+            this.player = player;
+            this.player.units = this.units.map(x => Object.assign({}, x));
+            this.adjustUnitsByRace();
 
-          if (location.pathname.endsWith('technology')) {
-            this.activeTab = 2;
-          } else {
-            this.activeTab = 1;
-          }
+            if (location.pathname.endsWith('technology')) {
+              this.activeTab = 2;
+            } else {
+              this.activeTab = 1;
+            }
+          });
         });
       });
     });
