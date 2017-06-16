@@ -13,7 +13,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-To build the web app from source, run `ng build -prod --base-href="/TICompanion/"`. The build artifacts will be stored in the `dist/` directory. Change the `--base-href` target to match your deployment environment.
+To build the web app from source, run `ng build --prod --base-href="/TICompanion/"`. The build artifacts will be stored in the `dist/` directory. Change the `--base-href` target to match your deployment environment.
 
 ## Contribute
 
