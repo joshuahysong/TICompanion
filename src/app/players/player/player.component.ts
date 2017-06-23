@@ -44,10 +44,10 @@ export class PlayerComponent implements OnInit, OnDestroy {
             this.player.units = this.units.map(x => Object.assign({}, x));
             this.adjustUnitsByRace();
 
-            if (location.pathname.endsWith('technology')) {
-              this.activeTab = 2;
+            if (this.activeTab === 2) {
+              this.router.navigate(['/players', id, 'technology']);
             } else {
-              this.activeTab = 1;
+              this.router.navigate(['/players', id, 'stats']);
             }
           });
         });
