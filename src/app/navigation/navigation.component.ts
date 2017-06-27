@@ -14,6 +14,7 @@ export class NavigationComponent implements OnInit {
   players: Player[];
   isIn = false; // collapsed state
   baseURL: string = "";
+  currentIndex = 1;
 
   constructor(
     private playerService: PlayerService,
@@ -38,6 +39,7 @@ export class NavigationComponent implements OnInit {
     if (this.isIn) {
       this.toggleState();
     }
+    this.currentIndex = player.id
   }
 
   resetData() {

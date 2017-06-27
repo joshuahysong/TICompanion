@@ -20,7 +20,7 @@
         <ul class="nav navbar-nav">
 
           <li *ngFor="let player of players"
-            [class.selected]="player === playerService.currentPlayer"
+            [class.selected]="player.id === currentIndex"
             (click)="onSelect(player)">
             <a [routerLink]="['/players/', player.id]">
 

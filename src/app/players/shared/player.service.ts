@@ -13,7 +13,6 @@ import { UnitService } from 'app/units/unit.service';
 export class PlayerService {
   players: Player[];
   units: Unit[]; 
-  currentPlayer: Player;
   maxPlayers: number = 6 // TODO Needs to be a user setting eventually
 
   constructor(
@@ -52,36 +51,19 @@ export class PlayerService {
   }
 
   getPlayer(id: number): Observable<Player> {
-
-      // if (this.races) {
-      //   return Observable.of(this.races.find(e => e.id === id));
-      // } else {
-      //   return this.getAll().map(all => {
-      //     let player = all.find(e => e.id === id);
-      //     this.currentPlayer = player;
-      //     return player;
-      //   });
-      // }
-
     if (this.players) {
       return Observable.of(this.players.find(e => e.id === id));
     } else {
       return this.getAll().map(all => {
         let player = all.find(e => e.id === id);
-        this.currentPlayer = player;
         return player;
       });
     }
-    // let playerIndex = this.players.findIndex(x => x.id == id);
-    // this.savePlayersData();
-    // this.currentPlayer = this.players[playerIndex] as Player;
-    // return this.currentPlayer;
   }
 
   addPlayer(id: number): Player {
     let player: Player = new Player(id, 'Player ' + id);
     player.units = this.units;
-    this.currentPlayer = player;
     localStorage['Player' + id] = JSON.stringify(player);
     return player;
   }
@@ -89,7 +71,6 @@ export class PlayerService {
   // This is a terrible way of making sure localstorage data is synced....
   // Not sure what else to do just yet. 
   savePlayersData() {
-
     for (var i = 1; i <= this.maxPlayers; i++) {
       let player = this.players[i-1]
       localStorage['Player' + i] = JSON.stringify(player);
